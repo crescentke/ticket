@@ -639,5 +639,5 @@ class VerifyQR(View):
             'director': ticket_data.ticket.museum.name,
             'genre': '',
             'rating': '',
-            'released': ''
+            'released': True
         }, safe=False)
