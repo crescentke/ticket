@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/ticket.css' %}"/>
+{% endblock styles %}
+
+
+{% block content %}
+
+
+<main class="page-main">
+    <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="under" href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item"><span>{{order_data.ticket.museum.name}} tickets</span></li>
+                <li class="breadcrumb-item"><span>Payment</span></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>Success</span></li>
+            </ol>
+        </div>
+    </nav>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+
+                <aside class="sidebar col-lg-3 order-1 order-lg-0">
+                    <div class="sidebar__content js-sticky-top">
+
+                        <section class="sidebar__card card">
+                            <div class="sidebar__card-title">
+                                <h4 class="card-title mb-1">Need Help Booking?</h4>
+                                <hr class="my-3 mt-2">
+                            </div>
+                            <p>Call our customer services team on the number below to speak to one of our advisors who
+                                will help you with all of your booking needs.</p>
+                            <ul class="sidebar__contacts">
+                                <li class="d-flex align-items-center"><i class="icon icon-phone mr-2"></i><a
+                                        class="fw-bold" href="tel:020 8019387">020 8019387</a></li>
+                            </ul>
+                        </section>
+
+                    </div>
+                </aside>
+
+                <div class="col-lg-9">
+
+                    <div class="barba-container">
+
+                        <div class="booking-card card">
+                            <div class="card-body">
+
+                                <div class="booking-card__title">
+                                    <h2>Tickets</h2>
+                                    <hr class="mb-4">
+                                </div>
+                                <div class="d-flex flex-wrap align-items-center mb-4">
+                                    <p class="mark bg-primary-light mb-3">
+                                        You have successfully paid and booked your tickets. A copy of this will be send
+                                        to your email address.
+                                    </p>
+                                </div>
+                                <section class="mb-5">
+                                    {% for booked_ticket in booked_tickets %}
+                                    <div>
+                                        <img src="{{ booked_ticket.qr_code.url }}" alt="{{ booked_ticket.qr_code }}">
+                                    </div>
+                                    {% endfor %}
+                                </section>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+{% endblock scripts %}

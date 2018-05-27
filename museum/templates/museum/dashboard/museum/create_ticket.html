@@ -1,0 +1,134 @@
+{% extends 'dashboard/museum/create_museum.html' %}
+
+{% load static %}
+
+{% block style_custom %}
+<link href="{% static 'assets/plugins/timepicker/bootstrap-timepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/jquery.dataTables.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/buttons.bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/fixedHeader.bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/responsive.bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/dataTables.bootstrap.min.css' %}" rel="stylesheet"/>
+<link href="{% static 'assets/plugins/datatables/scroller.bootstrap.min.css' %}" rel="stylesheet"/>
+<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css' %}">
+{% endblock style_custom %}
+
+
+{% block action_btns %}
+<a href="{% url 'museum-tickets' museum.id %}" class="pull-right page-title">
+    <i class="ti-angle-left"></i> Back
+</a>
+{% endblock action_btns %}
+
+
+{% block content %}
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form.hidden_fields %}
+    {{ field }}
+    {% endfor %}
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                            {{ form.name }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Valid From - To Dates</label>
+                            <div>
+                                <div class="input-daterange input-group" id="date-range">
+                                    {{ form.valid_from }}
+                                    <span class="input-group-addon bg-primary text-white b-0">to</span>
+                                    {{ form.valid_to }}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+
+                        <div class="form-group ">
+                            <label for="{{ form.price.id_for_label }}">{{ form.price.label }}</label>
+                            {{ form.price }}
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="{{ form.cover.id_for_label }}">{{ form.cover.label }}</label>
+                            {{ form.cover }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group ">
+                    <label for="{{ form.summary.id_for_label }}">{{ form.summary.label }}</label>
+                    {{ form.summary }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.available.id_for_label }}">{{ form.available.label }}</label>
+                    <br>
+                    {{ form.available }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+                    {{ form.description }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success waves-effect waves-light pull-right">CREATE TICKET</button>
+</form>
+{% endblock content %}
+
+
+{% block script_custom %}
+<script src="{% static 'assets/plugins/timepicker/bootstrap-timepicker.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"
+        type="text/javascript"></script>
+<script src="{% static 'assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js' %}"
+        type="text/javascript"></script>
+<script src="{% static 'assets/pages/form-advanced.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/jszip.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/vfs_fonts.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.fixedHeader.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.keyTable.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/responsive.bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.scroller.min.js' %}"></script>
+<script src="{% static 'assets/pages/datatables.init.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js' %}"></script>
+<script>
+        jQuery(document).ready(function() {
+            $('.wysihtml5').wysihtml5();
+        });
+
+</script>
+{% endblock script_custom %}

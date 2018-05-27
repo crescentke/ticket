@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block banner %}
+
+<div class="museum-banner">
+    <div class="container">
+        <div class="breadcrumbs-wrapper">
+            <ol class="step_bc">
+                <li>
+                    <i class="ti-map-alt"></i>
+                    {{ museum.name }}
+                </li>
+
+                <li>
+                    <div class="through-next">
+                        <div class="ticket-chad"></div>
+                    </div>
+                    <i class="ti-calendar"></i>
+                    Choose your tickets
+                </li>
+
+                <li class="breadcrumb-active">
+                    <div class="through-next">
+                        <div class="ticket-chad"></div>
+                    </div>
+                    <i class="ti-money"></i>
+                    Payment
+                </li>
+                <li class="breadcrumb-after-active">
+                    <div class="through-next">
+                        <div class="ticket-chad"></div>
+                    </div>
+                    Ticket Overview
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+{% endblock banner %}
+
+{% block content %}
+
+<div class="pad-fixed-top">
+    <form method="post" action="">
+        {% csrf_token %}
+
+
+        <div class="p-t-4">
+            <h4>Card details</h4>
+            <small>
+                Fill in the card details below to confirm your ticket payment.
+            </small>
+
+            <br/><br/>
+            <div class="clearfix"></div>
+
+            <div class="card">
+
+
+                <div class="card-header">
+                    <div class="card-details-heading">
+                        Cross-check your details before submitting your request
+                    </div>
+                </div>
+
+                <div class="card-body">
+
+                    {{ ticket_del_form.order_code }}
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ card_payment.card_name }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            {{ card_payment.card_number }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-6 form-group">
+                            {{ card_payment.card_expiry }}
+                        </div>
+
+                        <div class="col-md-6 form-group text-right">
+                            <button type="submit" class="outline-button">Confirm Payment</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="p-t-4">
+            <div class="card">
+                <div class="card-body">
+                    <iframe src="{{ payment_iframe|safe }}" style="border:0px #ffffff none;" name="myiFrame"
+                            scrolling="no"
+                            frameborder="0"
+                            marginheight="0px" marginwidth="0px" height="600px" width="100%px" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+{% for ticket in tickets %}
+<script type="text/javascript">
+    $("#{{ ticket.id }}_ticket_qty #id_qty").focusout(function(){
+        var qty{{ ticket.id }} = $("#{{ ticket.id }}_ticket_qty #id_qty").val();
+        $("#{{ ticket.id }}_ticket_total").text(parseInt(qty{{ ticket.id }}) * parseInt({{ ticket.price }}));
+        //alert(qty{{ ticket.id }} * {{ ticket.price }});
+
+        $.get('/update-order/', {ticket_id: {{ ticket.id }}, qty: qty{{ ticket.id }}}, function(data){
+               $('#id_order_code').val(data);
+        });
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+{% endfor %}
+
+{% endblock scripts %}

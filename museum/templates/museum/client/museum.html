@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block banner %}
+
+<div class="museum-banner">
+    <div class="container">
+        <div class="breadcrumbs-wrapper">
+            <ol class="step_bc">
+                <li>
+                    <i class="ti-map-alt"></i>
+                    {{ museum.name }}
+                </li>
+
+                <li class="breadcrumb-active">
+                    <div class="through-next">
+                        <div class="ticket-chad"></div>
+                    </div>
+                    <i class="ti-calendar"></i>
+                    Choose your tickets
+                </li>
+                <li class="breadcrumb-after-active">
+                    <div class="through-next">
+                        <div class="ticket-chad"></div>
+                    </div>
+                    Ticket Overview
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+{% endblock banner %}
+
+{% block content %}
+
+
+<main class="page-main">
+    <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="under" href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>{{museum.name}} tickets</span></li>
+            </ol>
+        </div>
+    </nav>
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+
+                <aside class="sidebar col-lg-3 order-1 order-lg-0">
+                    <div class="sidebar__content js-sticky-top">
+
+                        <section class="sidebar__card card">
+                            <div class="sidebar__card-title">
+                                <h4 class="card-title mb-1">Need Help Booking?</h4>
+                                <hr class="my-3 mt-2">
+                            </div>
+                            <p>Call our customer services team on the number below to speak to one of our advisors who
+                                will help you with all of your booking needs.</p>
+                            <ul class="sidebar__contacts">
+                                <li class="d-flex align-items-center"><i class="icon icon-phone mr-2"></i><a
+                                        class="fw-bold" href="tel:020 8019387">020 8019387</a></li>
+                            </ul>
+                        </section>
+
+                    </div>
+                </aside>
+
+                <div class="col-lg-9">
+                    <form method="post" action="" id="makePayment">
+                        {% csrf_token %}
+                        <div class="row">
+
+                            {% if tickets %}
+                            <!-- begin flight-item-->
+                            <div class="list-flight-item col-12">
+                                <div class="flight-card card">
+                                    <div class="row align-items-center flex-md-nowrap">
+
+                                        <div class="flight-card__row col-12 col-md text-center px-md-0">
+
+                                            {% for ticket in tickets %}
+
+                                            <div class="list-group list-group-flush flex-nowrap flex-md-row m-0">
+                                                <div class="list-group-item">
+                                                    <div class="row d-md-inline-flex flex-md-column">
+                                                        <div class="title col-5 col-md-12"><span><img
+                                                                class="img-fluid mb-md-1" src="{{ticket.cover.url}}"
+                                                                alt="#" height="20" width="20"/></span></div>
+                                                        <div class="col-7 col-md-12 fz-mdall">{{ticket.name}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row d-md-inline-flex flex-md-column text-md-right">
+                                                        <div class="title col-5 col-md-12">Price</div>
+                                                        <div class="col-7 col-md-12">KES {{ ticket.price|intcomma }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row d-md-inline-flex flex-md-column">
+                                                        <div class="title col-5 col-md-12">From</div>
+                                                        <div class="col-7 col-md-12">{{ticket.valid_from}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row d-md-inline-flex flex-md-column text-md-right">
+                                                        <div class="title col-5 col-md-12">To</div>
+                                                        <div class="col-7 col-md-12">{{ticket.valid_to}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row d-md-inline-flex flex-md-column">
+                                                        <div class="col-7 col-md-12 ml-auto text-nowrap"
+                                                             id="{{ ticket.id }}_ticket_qty">
+                                                            {{ ticket_qty_form.qty }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {% endfor %}
+
+                                        </div>
+
+                                        <div class="flight-card__total list-group list-group-flush col-12 col-md-auto">
+                                            <div class="list-group-item text-center p-md-0">
+                                                <div class="row justify-content-center align-items-center flex-md-column">
+                                                    <div class="col-5 col-md-12 mb-md-3">
+                                                        <div class="total text-nowrap">Total</div>
+                                                    </div>
+                                                    <div class="col-7 col-md-12">
+                                                        <button class="btn btn-secondary btn--round" id="ticket_total"
+                                                                role="button">
+                                                            0
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end flight-item-->
+                            {%else%}
+                            No tickets available for purchase
+                            {% endif %}
+
+                        </div>
+
+                        <div class="barba-container">
+                            <div class="booking-card card">
+                                <div class="card-body">
+                                    <div class="booking-card__title">
+                                        <h2>Personal info</h2>
+                                        <hr class="mb-4">
+                                    </div>
+
+                                    {{ ticket_del_form.order_code }}
+                                    {{ ticket_del_form.payment_mode }}
+
+                                    <div class="booking-card__form js-form-booking">
+                                        <div class="row pad-lg-20">
+
+                                            <div class="form-group col-12 col-sm-6">
+                                                {{ ticket_del_form.first_name }}
+                                            </div>
+                                            <div class="form-group col-12 col-sm-6">
+                                                {{ ticket_del_form.last_name }}
+                                            </div>
+                                            <div class="form-group col-12 col-sm-6">
+                                                {{ ticket_del_form.phone }}
+                                            </div>
+                                            <div class="form-group col-12 col-sm-6">
+                                                {{ ticket_del_form.email }}
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex">
+                                            <button type="button" id="btn-mpesa"
+                                                    class="btn btn-secondary btn--round mx-auto ml-sm-0">Continue with
+                                                M-Pesa
+                                            </button>
+                                            <button type="button" id="btn-card"
+                                                    class="btn btn-secondary btn--round mx-auto ml-sm-0">Continue with
+                                                Card
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-nav btn-nav--up js-scroll-up" type="button"><i class="fa fa-angle-up"></i>
+        </button>
+    </div>
+</main>
+
+
+{% endblock content %}
+
+{% block scripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% for ticket in tickets %}
+<script type="text/javascript">
+    var total_cost = 0;
+    $("#{{ ticket.id }}_ticket_qty #id_qty").focusout(function(){
+        var qty{{ ticket.id }} = $("#{{ ticket.id }}_ticket_qty #id_qty").val();
+        total_cost += parseInt(qty{{ ticket.id }}) * parseInt({{ ticket.price }});
+        $("#ticket_total").text(total_cost);
+        //alert(qty{{ ticket.id }} * {{ ticket.price }});
+
+        $.get('/update-order/', {ticket_id: {{ ticket.id }}, qty: qty{{ ticket.id }}}, function(data){
+               $('#id_order_code').val(data);
+        });
+
+    });
+
+    $("#btn-mpesa").on('click', function () {
+        $('#id_payment_mode').val('0');
+        var pm = $('#id_payment_mode').val();
+        document.getElementById("makePayment").submit();
+    });
+
+    $("#btn-card").on('click', function () {
+        $('#id_payment_mode').val('1');
+        var pm = $('#id_payment_mode').val();
+        document.getElementById("makePayment").submit();
+    });
+
+
+
+
+
+
+
+
+
+
+</script>
+{% endfor %}
+
+{% endblock scripts %}

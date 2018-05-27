@@ -1,0 +1,48 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% load static %}
+
+{% block action_btns %}
+<a href="{% url 'create-museum-ticket' museum.id %}" class="pull-right page-title">
+    <i class="ti-plus"></i> New Ticket
+</a>
+{% endblock action_btns %}
+
+{% block content %}
+
+{% include 'dashboard/museum/menu.html' %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <h4 class="m-b-30 m-t-0">Museum Tickets</h4>
+                <table id="datatable-responsive"
+                       class="table table-striped table-bordered dt-responsive nowrap"
+                       cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Available</th>
+                        <th>More</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.name }}</td>
+                        <td>{{ ticket.price }}</td>
+                        <td>{{ ticket.available }}</td>
+                        <td><a href="{% url 'edit-museum-ticket' museum.id ticket.id %}"><i class="ti-link"></i> Edit this ticket</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

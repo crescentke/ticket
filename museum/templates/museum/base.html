@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Looking for something amazing?">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="True">
+    <title>Your Museum Ticket</title>
+    <!-- Edge and IE-->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Add to homescreen for Chrome on Android-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Looking for something amazing?">
+    <link rel="icon" sizes="192x192" href="img/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Your Travel World">
+    <link rel="apple-touch-icon" href="img/touch/apple-touch-icon.png">
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,500,600,700%7CPoppins:400,500,600,700"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'client/css/jquery-ui.structure.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/jquery-ui.theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/flatpickr.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/fontawesome-stars-o.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/jquery.mCustomScrollbar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/nouislider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/css/blueimp-gallery.min.css' %}">
+    <link rel="stylesheet" href="{% static 'client/style.min.css' %}">
+    <link id="cssTheme" rel="stylesheet" href="{% static 'client/skins/style-default.css' %}">
+</head>
+
+<body class="load">
+
+<div class="progress-load js-progress-load"></div>
+
+
+<div class="modal-account modal" id="modalAccount" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="modal-account__tabs nav nav-tabs d-flex js-account-tabs" id="accountTabs" role="tablist">
+                    <li class="nav-item w-50"><a class="nav-link" data-toggle="tab" href="category.html#accountLogin"
+                                                 role="tab" aria-controls="accountLogin" aria-selected="false">Login</a>
+                    </li>
+                    <li class="nav-item w-50"><a class="nav-link" data-toggle="tab" href="category.html#accountRegist"
+                                                 role="tab" aria-controls="accountRegist" aria-selected="false">Sign
+                        Up</a></li>
+                    <li><a class="nav-link p-0 border-0" data-toggle="tab" href="category.html#accountForgot" role="tab"
+                           aria-controls="accountForgot" aria-selected="false"></a></li>
+                </ul>
+                <button class="btn btn-light close pointer" type="button" data-dismiss="modal" aria-label="close"><span
+                        class="icon text-dark" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                       viewBox="0 0 510 510"><path
+                        d="M255 0C114.75 0 0 114.75 0 255s114.75 255 255 255 255-114.75 255-255S395.25 0 255 0zm127.5 346.8l-35.7 35.7-91.8-91.8-91.8 91.8-35.7-35.7 91.8-91.8-91.8-91.8 35.7-35.7 91.8 91.8 91.8-91.8 35.7 35.7-91.8 91.8 91.8 91.8z"/></svg></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="tab-pane" id="accountLogin" role="tabpanel">
+                        <form class="modal-account__form js-account-form" id="formLogin" action="category.html#"
+                              method="POST" data-toggle="validator">
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="email" name="user_email"
+                                       placeholder="E-mail address" required="required"/>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="password" name="user_pass"
+                                       placeholder="Password" data-minlength="6" required="required"/>
+                                <div class="help-block">Your password must be at least 6 characters long</div>
+                            </div>
+                            <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                <button class="btn btn-secondary btn--round mr-2 mb-2" type="submit">sign in
+                                </button>
+                                <p class="mb-2"><a class="js-toggle-account" href="category.html#"
+                                                   data-account="forgot">Forgot your password?</a></p>
+                            </div>
+                            <div class="d-inline-block my-2 w-100">
+                                <div class="social-sign">
+                                    <div class="divider divider-horizontal">
+                                        <h5 class="font-weight-normal mx-2">Or click to sign in</h5>
+                                    </div>
+                                    <ul class="social-sign__list row">
+                                        <li class="col col-sm-6"><a class="nav-link" href="category.html#"><img
+                                                class="nav-icon img-fluid mr-2" src="img/facebook.png" alt="#"/><span
+                                                class="nav-text">Connect with Facebook</span></a></li>
+                                        <li class="col col-sm-6"><a class="nav-link" href="category.html#"><img
+                                                class="nav-icon img-fluid mr-2" src="img/google-plus.png" alt="#"/><span
+                                                class="nav-text">Connect with Google</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="modal-footer d-block">
+                            <p class="fz-small mb-0"><em>By accessing your account, you agree to our <a
+                                    href="category.html#">Terms and Conditions</a> and <a href="category.html#">Privacy
+                                Policy</a></em></p>
+                        </div>
+                    </div>
+                    <div class="tab-pane active show" id="accountRegist" role="tabpanel">
+                        <form class="modal-account__form js-account-form" id="formRegist" action="category.html#"
+                              method="POST" data-toggle="validator">
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="text" name="user_name"
+                                       placeholder="First Name" required="required"/>
+                                <div class="help-block">Please enter your name</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="text" name="user_last_name"
+                                       placeholder="Last Name" required="required"/>
+                                <div class="help-block">Please enter your last name</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="email" name="user_email"
+                                       placeholder="E-mail address" required="required"/>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" id="userPass" type="password"
+                                       name="user_pass" placeholder="Password" data-minlength="6" required="required"/>
+                                <div class="help-block">Your password must be at least 6 characters long</div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="password" name="user_pass_confirm"
+                                       placeholder="Confirm Password" data-match="#userPass" required="required"/>
+                                <div class="help-block">Please enter the same password as above</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="agreePolicy" type="checkbox" required><span
+                                        class="custom-control-label">I have read and agree to the  <a
+                                        href="category.html#">Terms of Use</a> and the  <a href="category.html#">Privacy Policy.</a></span>
+                                </label>
+                                <div class="help-block">Please accept our policy</div>
+                            </div>
+                            <p class="mb-4 d-flex justify-content-center justify-content-sm-start">
+                                <button class="btn btn-secondary btn--round" type="submit">Create Account</button>
+                            </p>
+                            <div class="d-inline-block my-2 w-100">
+                                <div class="social-sign">
+                                    <div class="divider divider-horizontal">
+                                        <h5 class="font-weight-normal mx-2">Or click to sign in</h5>
+                                    </div>
+                                    <ul class="social-sign__list row">
+                                        <li class="col col-sm-6"><a class="nav-link" href="category.html#"><img
+                                                class="nav-icon img-fluid mr-2" src="img/facebook.png" alt="#"/><span
+                                                class="nav-text">Sign up with Facebook</span></a></li>
+                                        <li class="col col-sm-6"><a class="nav-link" href="category.html#"><img
+                                                class="nav-icon img-fluid mr-2" src="img/google-plus.png" alt="#"/><span
+                                                class="nav-text">Sign up with Google</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-block">
+                                <div class="form-group">
+                                    <label class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" id="dispatchEmail" type="checkbox"><span
+                                            class="custom-control-label">Please send me Travelocity.com emails with travel deals, special offers, and other information.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="accountForgot" role="tabpanel">
+                        <form class="modal-account__form" id="formForgot" action="category.html#" method="POST"
+                              data-toggle="validator">
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" type="email" name="user_email"
+                                       placeholder="E-mail address" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <p class="text-center">We will email you instructions for resetting your password.</p>
+                            <p class="d-flex justify-content-center">
+                                <button class="btn btn-secondary btn--round" type="submit">Retrieve Password
+                                </button>
+                            </p>
+                            <p class="d-flex justify-content-center"><a class="js-toggle-account mr-3"
+                                                                        href="category.html#" data-account="regist">Create
+                                a new account</a><a class="js-toggle-account" href="category.html#"
+                                                    data-account="login">Return to Sign In</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<header class="page-header">
+    <div class="panel-fixed">
+        <div class="page-header__top bg-white js-header-top js-top-panel">
+            <div class="container">
+                <div class="row justify-content-center justify-content-between">
+                    <div class="col-12 col-md col-lg-3 d-flex justify-content-center justify-content-md-start">
+                        <a
+                                class="navbar-logo d-inline-flex align-items-center" href="{% url 'index' %}"><img
+                                class="img-fluid mr-3" src="{% static 'client/img/logo.png' %}" alt="#"/>
+                            <h4 class="m-0">Your Museum Ticket</h4></a></div>
+                    <div class="col col-lg-6 d-none d-md-flex align-items-center justify-content-center"><a
+                            class="page-header__call d-flex align-items-center text-nowrap"
+                            href="tel:0208019387"><i class="icon icon-call js-tooltip-call mr-3"
+                                                     data-toggle="tooltip" data-placement="bottom"
+                                                     title="Support 020 8019387"></i>
+                        <div class="page-header__call-right">
+                            <div class="title fz-small">Support</div>
+                            <div class="phone fw-bold"> 020 8019387</div>
+                        </div>
+                    </a>
+                        <div class="page-header__top-search d-none d-lg-block ml-4" id="navbarSearch">
+                            <form class="navbar-search" action="category.html#" method="GET">
+                                <div class="input-group flex-nowrap">
+                                    <input class="form-control pr-0 js-navbar-search-input" type="search"
+                                           placeholder="Search on site"/>
+                                    <div class="input-group-append">
+                                        <button class="navbar-search__subject btn btn-light" type="button"><i
+                                                class="fa fa-search text-gray"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col col-lg-3 d-none d-md-flex">
+                        <ul class="nav nav-panel">
+                            <li class="nav-item d-flex">
+                                <a class="nav-link btn btn-light"
+                                   href="{% url 'auth_login' %}"><i
+                                        class="text-gray icon icon-user mr-2"></i><span>log in</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-toggle btn btn-light d-lg-none btn-toggle-nav" type="button" data-toggle="collapse"
+            data-target="#navPanel"><span class="icon-bar"></span></button>
+
+    <nav class="main-nav d-flex collapse d-lg-block" id="navPanel">
+        <div class="main-nav__container d-flex">
+            <div class="container">
+                <div class="d-lg-none">
+                    <div class="main-nav__search">
+                        <form class="navbar-search" action="category.html#" method="GET">
+                            <div class="input-group flex-nowrap">
+                                <input class="form-control pr-0 js-navbar-search-input" type="search"
+                                       placeholder="Search on site"/>
+                                <div class="input-group-append">
+                                    <button class="navbar-search__subject btn btn-light" type="button"><i
+                                            class="fa fa-search text-gray"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav nav-panel">
+                        <li class="nav-item d-flex"><a class="nav-link btn btn-light js-toggle-account"
+                                                       href="#modalAccount" data-toggle="modal"
+                                                       role="button" data-account="login"><i
+                                class="text-gray icon icon-user mr-2"></i><span>log in</span></a>
+                        </li>
+                        <li class="nav-item d-flex"><a class="nav-link btn btn-light js-toggle-account"
+                                                       href="#modalAccount" data-toggle="modal"
+                                                       role="button" data-account="regist"><i
+                                class="text-gray icon icon-login mr-2"></i><span>sign up</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="main-nav__list nav d-flex" id="navMenu">
+                    <li class="nav-item"><a class="nav-link fw-bold text-uppercase"
+                                            href="{% url 'index' %}"><span>Home</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}danger{% endif %}"
+         role="alert">
+
+        <div class="flash-message__body">
+            {{ message|safe }}
+        </div>
+
+    </div>
+
+    {% endfor %}
+    {% endif %}
+</div>
+
+
+{% block content %}
+
+<main class="page-main">
+
+    <nav class="breadcrumb-nav d-flex align-items-center" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="under" href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span>All museums results</span></li>
+            </ol>
+        </div>
+    </nav>
+
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+
+
+                <aside style="display: none;" class="sidebar col-lg-0 order-1 order-lg-0">
+                    <div class="sidebar__content js-sticky-top">
+                        <div class="sidebar-filter modal card fade" id="sidebarFilter" tabindex="-1" role="dialog">
+                            <button class="btn-toggle btn btn-light" type="button" data-dismiss="modal"><span
+                                    class="icon-bar"></span></button>
+                            <div class="modal-header bg-white">
+                                <h4 class="modal-title">Refine search result</h4>
+                            </div>
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <ul class="sidebar-filter__list">
+
+                                            <li class="sidebar-filter__item">
+                                                <h5 class="sidebar-filter__title"><a
+                                                        class="sidebar-filter__toggle d-flex justify-content-between align-items-center"
+                                                        href="category.html#accommodation" data-toggle="collapse"
+                                                        role="button"><span>Accommodation type</span><i
+                                                        class="fa fa-angle-down"></i></a></h5>
+                                                <div class="collapse show" id="accommodation">
+                                                    <div class="sidebar-filter__content">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">Hotel</span>
+                                                        </label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">Hostel</span>
+                                                        </label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">Pension</span>
+                                                        </label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">Apartment</span>
+                                                        </label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">Apart Hotel</span>
+                                                        </label>
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox"/><span
+                                                                class="custom-control-label pointer">All inclusive resort</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+
+                <div class="col-lg-12 offset-lg-0 category-content">
+
+
+                    <nav class="sortbar navbar shadow-sm d-flex align-items-stretch">
+                        <div class="sortbar__title d-flex align-items-stretch">
+                            <button class="navbar-brand d-flex align-items-center pointer js-toggle-sidebar"
+                                    data-target="#sidebarFilter" data-toggle="modal" type="button"><i
+                                    class="d-lg-none icon icon-filter"></i><span class="ml-2 d-none d-lg-inline">Sort by:</span>
+                            </button>
+                        </div>
+                        <div class="sortbar__sort js-sorting d-flex align-items-stretch"><a class="nav-link"
+                                                                                            href="category.html#">Popularity</a><a
+                                class="nav-link" href="category.html#">Price</a><a class="nav-link"
+                                                                                   href="category.html#">Stars</a><a
+                                class="nav-link" href="category.html#">Rating</a><a
+                                class="nav-link d-flex d-md-none align-items-center" href="category.html#"><span
+                                class="mr-2">Sort by</span><i class="icon icon-sort-duble"></i></a></div>
+                        <div class="sortbar__grid d-flex align-items-stretch ml-md-auto"><a
+                                class="nav-link active js-toggle-grid" href="category.html#" data-grid="grid"
+                                data-cols="col-12 col-sm-6 col-xl-4 d-flex"><i class="icon icon-grid"></i></a><a
+                                class="nav-link js-toggle-grid" href="category.html#" data-grid="list"
+                                data-cols="col-12 d-flex"><i class="icon icon-list-mb"></i></a></div>
+                    </nav>
+
+
+                    <div class="category-content__items row pad-lg-20">
+
+                        {% for museum in museums %}
+                        <div class="col-12 col-sm-6 col-xl-4 d-flex">
+                            <div class="product bg-white js-grid-item">
+
+
+                                <a class="product__img-top d-block" href="{% url 'client-museum' museum.slug %}">
+                                    <img class="img-fluid" src="{{ museum.cover.url }}" alt="{{ museum.cover.url }}"/>
+                                </a>
+
+                                <div class="product__body">
+
+                                    <h4 class="product__title">
+                                        <a>{{ museum.name }}</a>
+                                    </h4>
+
+                                    <div class="product__rating mb-2">
+                                        <div class="rating">
+                                            <select class="js-rating-stat" data-current-rating="5">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5" selected="selected">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <ul class="product__stat d-flex flex-wrap justify-content-between align-items-center">
+                                        <li class="mr-3">
+                                            <span>{{ museum.address }}</span>
+                                            <i class="bullet"></i>
+                                            <a href="category.html#modalMap" data-toggle="modal"
+                                               data-title="Al Moggar Garden Beach Club">Show on map</a>
+                                        </li>
+                                        <li class="d-inline-flex align-items-center"><i
+                                                class="icon icon-thumbs-up mr-1"></i><span>8/10</span>
+                                        </li>
+                                    </ul>
+                                    <hr/>
+                                    <ul class="product__price d-flex justify-content-between align-items-center">
+                                        <li class="mr-2"><span>Price per night from</span></li>
+                                        <li><span class="cost">Ksh 50</span>
+                                        </li>
+                                    </ul>
+                                    <hr/>
+                                    <div class="product__desc">
+                                        <p>
+                                            {{ museum.background|safe|truncatewords:29 }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="d-none d-sm-block"/>
+                                <div class="product__footer">
+                                    <ul class="product__price d-flex justify-content-between align-items-center">
+                                        <li class="mr-2"><span>Price per night from</span></li>
+                                        <li><span class="cost">Ksh 50</span>
+                                        </li>
+                                    </ul>
+                                    <a class="product__btn-book btn btn-secondary btn--round"
+                                       href="{% url 'client-museum' museum.slug %}">book now</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+
+                    <nav class="pagination-nav d-none" aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="category.html#"><i
+                                    class="fa fa-angle-double-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="category.html#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="category.html#">2</a>
+                            </li>
+                            <li class="page-item align-self-end d-sm-none"><a class="dotted" href="category.html#">......</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="category.html#">4</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="category.html#">5</a>
+                            </li>
+                            <li class="page-item d-none d-sm-block"><a class="page-link" href="category.html#">6</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="category.html#">7</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="category.html#">8</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="category.html#"><i
+                                    class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary btn-nav btn-nav--up js-scroll-up" type="button">
+            <i class="fa fa-angle-up"></i>
+        </button>
+
+
+    </div>
+</main>
+
+{% endblock content %}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3gFKhVywUkygSxQEBdGVrI5-ZRrdjueA"></script>
+<script src="{% static 'client/js/maps.js'  %}"></script>
+<script src="{% static 'client/js/libs/moment.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/wNumb.js'  %}"></script>
+<script src="{% static 'client/js/libs/nouislider.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery-ui.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/barba.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/sticky-kit.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/velocity.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/velocity.ui.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.waypoints.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/popper.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/bootstrap.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/imagesloaded.pkgd.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/masonry.pkgd.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/isotope.pkgd.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/ofi.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jarallax.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jarallax-video.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jarallax-element.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.mCustomScrollbar.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/swiper.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/flatpickr/flatpickr.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/flatpickr/rangePlugin.js'  %}"></script>
+<script src="{% static 'client/js/libs/select2.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/select2/en.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.mask.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/validator.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.barrating.min.js'  %}"></script>
+<script src="{% static 'client/js/libs/jquery.blueimp-gallery.min.js'  %}"></script>
+<script src="{% static 'client/js/script.min.js'  %}"></script>
+<script src="{% static 'client/js/demo-switcher.js'  %}"></script>
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+
+</body>
+</html>

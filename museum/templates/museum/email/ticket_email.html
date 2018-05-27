@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title></title>
+<body itemscope itemtype="http://schema.org/EmailMessage">
+
+<p>Greetings {{ ticket_delivery.first_name }},</p>
+
+
+<p>
+    You are receiving this email because you (or someone pretending to be you)
+    booked for <strong>{{order_data.ticket.museum.name}}</strong> tickets on the {{ domain }} site. If you do not
+    make this purchase, please ignore this message.
+</p>
+
+<p>
+    Below is (or are) your tickets:
+</p>
+
+{% for booked_ticket in booked_tickets %}
+<div>
+    <img src="{{ booked_ticket.qr_code.url }}" alt="{{ booked_ticket.qr_code }}">
+</div>
+{% endfor %}
+
+<p>Best regards,<br/>
+    {{ site_name }} Management
+</p>
+
+</body>
+</html>

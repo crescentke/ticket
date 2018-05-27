@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="Ticket booking in Kenya" name="description"/>
+    <meta content="CrescentKE" name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    {% load static %}
+
+    {% block style_custom %}
+    <link href="{% static 'assets/plugins/datatables/jquery.dataTables.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/buttons.bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/fixedHeader.bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/responsive.bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/dataTables.bootstrap.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/scroller.bootstrap.min.css' %}" rel="stylesheet"/>
+    {% endblock style_custom %}
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    {% block content %}
+
+    {% endblock content %}
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+<script src="{% static 'assets/js/detect.js' %}"></script>
+<script src="{% static 'assets/js/fastclick.js' %}"></script>
+<script src="{% static 'assets/js/jquery.slimscroll.js' %}"></script>
+<script src="{% static 'assets/js/jquery.blockUI.js' %}"></script>
+<script src="{% static 'assets/js/waves.js' %}"></script>
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.nicescroll.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrollTo.min.js' %}"></script>
+
+
+{% block script_custom %}
+<script src="{% static 'assets/plugins/morris/morris.min.js' %}"></script>
+<script src="{% static 'assets/plugins/raphael/raphael-min.js' %}"></script>
+<script src="{% static 'assets/pages/dashborad.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.bootstrap.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/jszip.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/pdfmake.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/vfs_fonts.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.fixedHeader.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.keyTable.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/responsive.bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/datatables/dataTables.scroller.min.js' %}"></script>
+<script src="{% static 'assets/pages/datatables.init.js' %}"></script>
+{% endblock script_custom %}
+
+<script src="{% static 'assets/js/app.js' %}"></script>
+</body>
+
+</html>

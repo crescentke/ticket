@@ -1,0 +1,13 @@
+<div class="btn-group">
+    <a href="{% url 'edit-event' event.id %}"
+       class="btn {% if details_selected %}btn-primary{% else %}btn-default{% endif %} waves-effect">Details</a>
+    <a href="{% url 'event-tickets' event.id %}"
+       class="btn {% if tickets_selected %}btn-primary{% else %}btn-default{% endif %} waves-effect">
+        Tickets
+    </a>
+    <a href="" class="btn {% if orders_selected %}btn-primary{% else %}btn-default{% endif %} waves-effect">
+        Orders
+    </a>
+</div>
+<div class="clearfix"></div>
+<br/>

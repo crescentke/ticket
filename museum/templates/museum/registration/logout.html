@@ -1,0 +1,37 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Logged out" %}{% endblock %}
+
+{% block content %}
+<div class="join-main">
+    <div class="container">
+
+        <div class="login-panel">
+            <section class="">
+                <section class="ss-join-section">
+                    <header class="header-container">
+                        <span class="join-header">Logged out</span>
+                    </header>
+                    <div class="account-bg">
+                        <div class="login-white less-padding">
+                            <p class="action-info">
+                                {% trans "Successfully logged out" %}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="login-modal-footer">
+                        <a href="{% url 'auth_login' %}" class="arrow selected-language en">Sign in</a>
+                    </div>
+
+
+                </section>
+            </section>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

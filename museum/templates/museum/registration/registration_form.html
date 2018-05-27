@@ -1,0 +1,55 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign up for an account" %}{% endblock %}
+
+{% block content %}
+<!--suppress ALL -->
+<div class="login-panel">
+            <section class="">
+                <section class="ss-join-section">
+                    <header class="header-container">
+                        <a class="join-header" href="{% url 'index' %}">Museum</a>
+                    </header>
+
+                    <div class="account-bg">
+                        <div class="">
+                            <div class="login-white">
+                                <form method="post" action="">
+
+                                    {% if form.errors %}
+                                        <div class="invalid-feedback">{{ form.errors|safe }}</div>
+                                    {% endif %}
+
+                                    {% csrf_token %}
+
+                                    {{ form.last_name }}
+
+                                    {% for field in form %}
+                                    <div class="form-group">
+                                        <label class="" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                        {{ field }}
+                                        <small class="text-muted eh d-none">{{ field.help_text|safe }}</small>
+                                    </div>
+
+                                    <script type="text/javascript" >
+                                        $("#{{ field.id_for_label }}").attr('placeholder', '{{field.label}}');
+                                    </script>
+
+                                    {% endfor %}
+
+                                    <input type="submit" class="btn-submit" value="{% trans 'Sign up' %}" />
+                                </form>
+
+                                <p class="next-action">{% trans "Already a member?" %} <a href="/accounts/login">{% trans "Log in" %}</a></p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </section>
+        </div>
+
+{% endblock %}

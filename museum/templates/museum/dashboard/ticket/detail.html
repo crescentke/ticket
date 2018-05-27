@@ -1,0 +1,64 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% load static %}
+
+{% block style_custom %}
+
+{% endblock style_custom %}
+
+{% block action_btns %}
+<a href="{% url 'create-event' %}" class="pull-right page-title hidden">
+    <i class="ti-plus"></i> New Event
+</a>
+{% endblock action_btns %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <h4 class="m-b-30 m-t-0">Ticket details</h4>
+
+                <div class="wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-0">
+                                <div class="ticket-card">
+
+                                    <div class="body">
+
+                                        <div class="artist">
+                                            <h4 class="name">{{ ticket_data.ticket.museum.name }} Ticket</h4>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="info">
+                                            <p class="location">
+                                                <i class="fa fa-map-marker"></i> {{ ticket_data.ticket.museum.address }}
+                                            </p>
+                                            <p class="date">
+                                                <i class="fa fa-calendar"></i>
+                                                {{ ticket_data.ticket.valid_from }} - {{ ticket_data.ticket.valid_to }}
+                                            </p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div>
+                                            <img src="{{ ticket_data.qr_code.url }}"
+                                                 alt="{{ ticket_data.qr_code }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

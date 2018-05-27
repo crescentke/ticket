@@ -1,0 +1,142 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+{% block content %}
+
+<div class="accountbg"></div>
+<div class="wrapper-page">
+    <div class="panel panel-color panel-primary panel-pages">
+        <div class="panel-body">
+            <h3 class="text-center m-t-0 m-b-15">
+                <a href="{% url 'index' %}" class="logo">
+                    <img src="{% static 'assets/images/logo.png' %}">
+                </a>
+            </h3>
+            <h4 class="text-muted text-center m-t-0">
+                <b>Sign In</b>
+            </h4>
+
+            {% if form.errors %}
+            <div class="invalid-feedback">{{ form.errors|safe }}</div>
+            {% endif %}
+
+            <form class="form-horizontal m-t-20" method="post" action="">
+
+                {% csrf_token %}
+                {% for field in form %}
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        {{ field }}
+                        <script type="text/javascript">
+                        //alert(1);
+                            $("input#{{ field.id_for_label }}").addClass('form-control');
+
+
+                        </script>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox-signup" type="checkbox" checked>
+                            <label for="checkbox-signup"> Remember me </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center m-t-40">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Log In
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group m-t-30 m-b-0">
+                    <div class="col-sm-12 text-center">
+                        <a href="{% url 'auth_password_reset' %}" class="text-muted">
+                            <i class="fa fa-lock m-r-5"></i> {% trans "Forgot password?" %}</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--suppress ALL -->
+<div class="col-md-8 col-md-offset-2 hidden">
+    <section class="">
+        <section class="ss-join-section">
+            <header class="header-container">
+                <a class="join-header" href="{% url 'index' %}">Museum</a>
+            </header>
+
+
+            <div class="account-bg">
+                <div class="">
+                    <div class="login-white">
+                        <form method="post" action="">
+                            {% if form.errors %}
+                            <div class="invalid-feedback">{{ form.errors|safe }}</div>
+                            {% endif %}
+
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group">
+                                <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <small class="text-muted">{{ field.help_text }}</small>
+                                <script type="text/javascript">
+                                            $("#{{ field.id_for_label }}").attr('placeholder', '{{field.label}}');
+
+
+
+                                </script>
+                            </div>
+
+                            {% endfor %}
+                            <div class="clearfix">
+                                <div class="pull-left">
+                                    <input type="submit" class="btn-submit" value="{% trans 'Log in' %}"/>
+                                </div>
+                                <div class="pull-right m-t-3">
+                                    <a href="{% url 'auth_password_reset' %}" class="forgot">
+                                        {% trans "Forgot password?" %}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="next" value="{{ next }}"/>
+                        </form>
+
+
+                        <p class="next-action">{% trans "Don’t have an account? " %} <a
+                                href="{% url 'registration_register' %}{% if next %}?next={{ next }} {% endif %}">
+                            {% trans "Sign up" %}</a></p>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </section>
+</div>
+{% endblock %}
+
+
+{% block script_custom %}
+{% for field in form %}
+<script type="text/javascript">
+    $("input#{{ field.id_for_label }}").addClass('form-control');
+    $("#{{ field.id_for_label }}").attr('placeholder', '{{field.label}}');
+</script>
+
+{% endfor %}
+{% endblock script_custom %}

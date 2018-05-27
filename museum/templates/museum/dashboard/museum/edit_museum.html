@@ -1,0 +1,61 @@
+{% extends 'dashboard/museum/create_museum.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+{% include 'dashboard/museum/menu.html' %}
+
+<form method="post" action="">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div class="">
+                {% csrf_token %}
+                {% for field in form.hidden_fields %}
+                {{ field }}
+                {% endfor %}
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                            {{ form.name }}
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
+                            {{ form.address }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.background.id_for_label }}">{{ form.background.label }}</label>
+                    {{ form.background }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="{{ form.services.id_for_label }}">{{ form.services.label }}</label>
+                    {{ form.services }}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-success waves-effect waves-light pull-right">UPDATE MUSEUM
+    </button>
+</form>
+
+{% endblock content %}
