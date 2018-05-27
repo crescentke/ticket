@@ -633,8 +633,12 @@ class VerifyQR(View):
         ticket_data = get_object_or_404(BookedTicket, slug=kwargs['slug'])
 
         today = datetime.now()
+        valid_from = datetime.datetime(ticket_data.ticket.valid_from.year, ticket_data.ticket.valid_from.month,
+                                       ticket_data.ticket.valid_from.day)
+        valid_to = datetime.datetime(ticket_data.ticket.valid_to.year, ticket_data.ticket.valid_to.month,
+                                     ticket_data.ticket.valid_to.day)
 
-        if ticket_data.ticket.valid_from >= today and ticket_data.ticket.valid_to <= today:
+        if valid_from >= today >= valid_to:
             released = True
             msg = 'Ticket is valid'
         else:

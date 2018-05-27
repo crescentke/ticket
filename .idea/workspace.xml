@@ -20,8 +20,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/museum/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="635" lean-forward="true" selection-start-line="635" selection-end-line="635" />
+            <state relative-caret-position="343">
+              <caret line="641" column="26" lean-forward="true" selection-start-line="641" selection-start-column="26" selection-end-line="641" selection-end-column="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -166,7 +166,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-5" />
+    <option name="x" value="812" />
     <option name="y" value="23" />
     <option name="width" value="1102" />
     <option name="height" value="999" />
@@ -272,7 +272,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="23" width="1102" height="999" extended-state="0" />
+    <frame x="812" y="23" width="1102" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24329324" />
@@ -662,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/museum/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="635" lean-forward="true" selection-start-line="635" selection-end-line="635" />
+        <state relative-caret-position="343">
+          <caret line="641" column="26" lean-forward="true" selection-start-line="641" selection-start-column="26" selection-end-line="641" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
