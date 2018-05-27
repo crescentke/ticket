@@ -634,16 +634,16 @@ class VerifyQR(View):
 
         today = datetime.now()
         valid_from = datetime(ticket_data.ticket.valid_from.year, ticket_data.ticket.valid_from.month,
-                                       ticket_data.ticket.valid_from.day)
+                              ticket_data.ticket.valid_from.day)
         valid_to = datetime(ticket_data.ticket.valid_to.year, ticket_data.ticket.valid_to.month,
-                                     ticket_data.ticket.valid_to.day)
+                            ticket_data.ticket.valid_to.day)
 
         if valid_from >= today >= valid_to:
             released = True
             msg = 'Ticket is valid'
         else:
             released = False
-            msg = 'Ticket is invalid'
+            msg = 'Ticket is invalid. You can only use it from %s to %s' % (valid_from, valid_to)
 
         print(today)
 
