@@ -24,7 +24,7 @@ SECRET_KEY = 'vn862ot(@@znk9kr!8oela3c_@nua2m*d=3nf=(wo*&_)v%j9u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://ticket.tibiwa.com']
+ALLOWED_HOSTS = ['ticket.tibiwa.com']
 
 # Application definition
 
