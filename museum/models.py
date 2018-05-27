@@ -126,6 +126,7 @@ class BookedTicket(models.Model):
     ticket = models.ForeignKey(MuseumTicket, on_delete=models.CASCADE)
     qr_code = models.ImageField(upload_to='qrcodes')
     slug = models.SlugField()
+    used = models.BooleanField(default=False)
 
     def __str__(self):
         return self.order_code

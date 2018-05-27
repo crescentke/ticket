@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b1d7a4f-470b-4f39-b4aa-8154a9b355ea" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/museum/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/museum/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/museum/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/museum/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ticket/settings.py" afterDir="false" />
     </list>
@@ -17,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/museum/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="640" column="32" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
+            <state relative-caret-position="403">
+              <caret line="645" column="34" lean-forward="true" selection-start-line="645" selection-start-column="34" selection-end-line="645" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -41,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/museum/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+            <state relative-caret-position="518">
+              <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
               <folding>
                 <element signature="e#2102#2779#0" />
               </folding>
@@ -147,7 +148,6 @@
         <option value="$PROJECT_DIR$/museum/templates/museum/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/museum/templates/museum/dashboard/ticket/tickets.html" />
         <option value="$PROJECT_DIR$/museum/templates/museum/dashboard/ticket/detail.html" />
-        <option value="$PROJECT_DIR$/museum/models.py" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/museum/static/client/css/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/museum/static/client/style.min.css" />
@@ -161,6 +161,7 @@
         <option value="$PROJECT_DIR$/museum/urls.py" />
         <option value="$PROJECT_DIR$/ticket/settings.py" />
         <option value="$PROJECT_DIR$/museum/views.py" />
+        <option value="$PROJECT_DIR$/museum/models.py" />
       </list>
     </option>
   </component>
@@ -648,22 +649,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/museum/models.py">
+    <entry file="file://$PROJECT_DIR$/museum/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
+        <state relative-caret-position="403">
+          <caret line="645" column="34" lean-forward="true" selection-start-line="645" selection-start-column="34" selection-end-line="645" selection-end-column="34" />
           <folding>
-            <element signature="e#2102#2779#0" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/museum/views.py">
+    <entry file="file://$PROJECT_DIR$/museum/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="640" column="32" selection-start-line="640" selection-start-column="32" selection-end-line="640" selection-end-column="32" />
+        <state relative-caret-position="518">
+          <caret line="128" column="44" selection-start-line="128" selection-start-column="44" selection-end-line="128" selection-end-column="44" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#2102#2779#0" />
           </folding>
         </state>
       </provider>
