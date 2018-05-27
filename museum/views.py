@@ -649,8 +649,15 @@ class VerifyQR(View):
                 released = False
                 msg = 'Ticket is invalid. You can only use it from %s to %s' % (valid_from, valid_to)
         else:
-            released = False
-            msg = 'Ticket is invalid. This ticket has already been used.'
+            if valid_from <= today <= valid_to:
+                released = True
+                mu = BookedTicket.objects.get(slug=kwargs['slug'])
+                mu.used = True
+                mu.save()
+                msg = 'Ticket is valid. You can only use it from %s to %s' % (valid_from, valid_to)
+            else:
+                released = False
+                msg = 'Ticket is invalid. This ticket has already been used.'
 
         print(today)
 
