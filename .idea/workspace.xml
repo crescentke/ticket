@@ -20,8 +20,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/museum/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="648" column="27" selection-start-line="648" selection-start-column="27" selection-end-line="648" selection-end-column="27" />
+            <state relative-caret-position="263">
+              <caret line="635" lean-forward="true" selection-start-line="635" selection-end-line="635" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -168,7 +168,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-5" />
     <option name="y" value="23" />
-    <option name="width" value="892" />
+    <option name="width" value="1102" />
     <option name="height" value="999" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -272,17 +272,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="23" width="892" height="999" extended-state="0" />
+    <frame x="-5" y="23" width="1102" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.30195177" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24329324" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.3292683" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="2" visible="true" weight="0.32815966" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.32815966" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.24932736" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.22062084" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.22062084" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -662,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/museum/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="648" column="27" selection-start-line="648" selection-start-column="27" selection-end-line="648" selection-end-column="27" />
+        <state relative-caret-position="263">
+          <caret line="635" lean-forward="true" selection-start-line="635" selection-end-line="635" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

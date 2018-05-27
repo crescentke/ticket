@@ -634,7 +634,7 @@ class VerifyQR(View):
 
         today = datetime.now()
 
-        if ticket_data.valid_from >= today and ticket_data.valid_to <= today:
+        if ticket_data.ticket.valid_from >= today and ticket_data.ticket.valid_to <= today:
             released = True
             msg = 'Ticket is valid'
         else:
