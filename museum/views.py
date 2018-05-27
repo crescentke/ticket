@@ -1,5 +1,6 @@
 import random
 import string
+from datetime import datetime
 
 import qrcode
 import requests
@@ -631,13 +632,24 @@ class VerifyQR(View):
     def get(self, request, *args, **kwargs):
         ticket_data = get_object_or_404(BookedTicket, slug=kwargs['slug'])
 
+        today = datetime.now()
+
+        if ticket_data.valid_from >= today and ticket_data.valid_to <= today:
+            released = True
+            msg = 'Ticket is valid'
+        else:
+            released = False
+            msg = 'Ticket is invalid'
+
+        print(today)
+
         return JsonResponse({
             'name': ticket_data.ticket.name,
             'poster': ticket_data.ticket.cover.url,
-            'duration': 'From %s to %s' % (ticket_data.ticket.valid_from, ticket_data.ticket.valid_to),
+            'duration': msg,
             'price': ticket_data.ticket.price,
             'director': ticket_data.ticket.museum.name,
             'genre': 'Something',
             'rating': '3.4',
-            'released': True
+            'released': released
         }, safe=False)
