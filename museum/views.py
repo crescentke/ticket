@@ -631,6 +631,8 @@ class VerifyQR(View):
     def get(self, request, *args, **kwargs):
         ticket_data = get_object_or_404(BookedTicket, slug=kwargs['slug'])
 
+
+
         return JsonResponse({
             'name': ticket_data.ticket.name,
             'poster': ticket_data.ticket.cover.url,
@@ -639,5 +641,5 @@ class VerifyQR(View):
             'director': ticket_data.ticket.museum.name,
             'genre': '',
             'rating': '',
-            'released': 'true'
+            'released': True
         }, safe=False)
