@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vn862ot(@@znk9kr!8oela3c_@nua2m*d=3nf=(wo*&_)v%j9u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['ticket.tibiwa.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
