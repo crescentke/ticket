@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b1d7a4f-470b-4f39-b4aa-8154a9b355ea" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/museum/templates/museum/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/museum/templates/museum/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/museum/templates/museum/client/museum.html" beforeDir="false" afterPath="$PROJECT_DIR$/museum/templates/museum/client/museum.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/museum/templates/museum/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="409" column="41" selection-start-line="409" selection-start-column="41" selection-end-line="409" selection-end-column="41" />
+            <state relative-caret-position="486">
+              <caret line="421" column="33" selection-start-line="421" selection-start-column="33" selection-end-line="421" selection-end-column="33" />
               <folding>
                 <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
@@ -66,13 +66,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="museum.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="process_payment.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/process_payment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1062">
+              <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/payment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="museum.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/museum.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="69" selection-end-column="24" />
+            <state relative-caret-position="207">
+              <caret line="186" column="73" selection-start-line="186" selection-start-column="73" selection-end-line="186" selection-end-column="73" />
               <folding>
                 <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" />
+                <element signature="n#style#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,12 +190,12 @@
         <option value="$PROJECT_DIR$/museum/templates/museum/client/process_payment.html" />
         <option value="$PROJECT_DIR$/museum/forms.py" />
         <option value="$PROJECT_DIR$/museum/templates/museum/client/ticket.html" />
-        <option value="$PROJECT_DIR$/museum/templates/museum/client/museum.html" />
         <option value="$PROJECT_DIR$/museum/urls.py" />
         <option value="$PROJECT_DIR$/museum/models.py" />
         <option value="$PROJECT_DIR$/museum/views.py" />
         <option value="$PROJECT_DIR$/ticket/settings.py" />
         <option value="$PROJECT_DIR$/museum/templates/museum/base.html" />
+        <option value="$PROJECT_DIR$/museum/templates/museum/client/museum.html" />
       </list>
     </option>
   </component>
@@ -305,14 +324,14 @@
     <frame x="812" y="23" width="1102" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24329324" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24329324" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.3292683" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Run" order="6" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32815966" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.24932736" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.22062084" />
+      <window_info anchor="bottom" id="Terminal" order="3" visible="true" weight="0.22062084" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -596,24 +615,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/museum/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1590">
           <caret line="109" column="77" selection-start-line="109" selection-start-column="77" selection-end-line="109" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/process_payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="107" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -682,24 +687,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/museum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="69" selection-end-column="24" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/museum/templates/museum/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="409" column="41" selection-start-line="409" selection-start-column="41" selection-end-line="409" selection-end-column="41" />
+        <state relative-caret-position="486">
+          <caret line="421" column="33" selection-start-line="421" selection-start-column="33" selection-end-line="421" selection-end-column="33" />
           <folding>
             <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
             <element signature="n#nav#1;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/process_payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1062">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/museum/templates/museum/client/museum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="186" column="73" selection-start-line="186" selection-start-column="73" selection-end-line="186" selection-end-column="73" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" />
+            <element signature="n#style#0;n#button#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
